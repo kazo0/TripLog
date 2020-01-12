@@ -409,3 +409,4 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 **/*/values/secrets.xml
+TripLog.Android/Resources/Resource.designer.cs
