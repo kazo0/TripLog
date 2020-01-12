@@ -9,7 +9,8 @@
     <TableView Intent="Form">
         <TableView.Root>
             <TableSection>
-                <EntryCell Label="Title"
+                <EntryCell x:Name="title"
+                           Label="Title"
                            Text="{Binding Title}" />
                 <EntryCell Text="{Binding Latitude}"
                            Keyboard="Numeric"
@@ -19,7 +20,8 @@
                            Label="Longitude" />
                 <EntryCell Label="Date"
                            Text="{Binding Date, StringFormat='{0:d}'}" />
-                <EntryCell Text="{Binding Rating}"
+                <EntryCell x:Name="rating"
+                           Text="{Binding Rating}"
                            Keyboard="Numeric"
                            Label="Rating" />
                 <EntryCell Text="{Binding Notes}"

@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Threading.Tasks;
 using TripLog.Models;
+using TripLog.Services;
 using Xamarin.Forms;
 
 namespace TripLog.ViewModels
 {
-	public class NewEntryViewModel : BaseViewModel
+	public class NewEntryViewModel : BaseValidationViewModel
 	{
 		#region Properties
 		private string _title;
@@ -13,6 +15,10 @@ namespace TripLog.ViewModels
 			set
 			{
 				_title = value;
+				Validate(
+					() => !string.IsNullOrWhiteSpace(_title),
+					"Title must be provided"
+				);
 				OnPropertyChanged();
 				SaveCommand.ChangeCanExecute();
 			}
@@ -58,7 +64,11 @@ namespace TripLog.ViewModels
 			set
 			{
 				_rating = value;
+				Validate(
+					() => _rating >= 1 && _rating <= 5,
+					"Rating must be between 1 and 5");
 				OnPropertyChanged();
+				SaveCommand.ChangeCanExecute();
 			}
 		}
 
@@ -77,17 +87,35 @@ namespace TripLog.ViewModels
 		#region Commands
 
 		private Command _saveCommand;
-		public Command SaveCommand => _saveCommand ?? (_saveCommand = new Command(Save, CanSave));
+		public Command SaveCommand => _saveCommand ?? (_saveCommand = new Command(async () => await Save(), CanSave));
 
 		#endregion
 
-		public NewEntryViewModel()
+		private readonly ILocationService _locationService;
+
+		public NewEntryViewModel(INavService navService, ILocationService locationService) : base(navService)
 		{
 			Date = DateTime.Today;
 			Rating = 1;
+
+			_locationService = locationService;
 		}
 
-		private void Save()
+		public override async void Init()
+		{
+			try
+			{
+				var coords = await _locationService.GetGeoCoordinates();
+				Latitude = coords.Latitude;
+				Longitude = coords.Longitude;
+			}
+			catch (Exception e)
+			{
+				//TODO Handle Exception
+			}
+		}
+
+		private async Task Save()
 		{
 			var newItem = new TripLogEntry
 			{
@@ -99,12 +127,12 @@ namespace TripLog.ViewModels
 				Notes = Notes
 			};
 
-			// TODO: Persist entry in a later chapter
+			await NavService.GoBack();
 		}
 
 		private bool CanSave()
 		{
-			return !string.IsNullOrEmpty(Title);
+			return !string.IsNullOrEmpty(Title) && !HasErrors;
 		}
 	}
 }
