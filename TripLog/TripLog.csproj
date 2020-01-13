@@ -29,5 +29,7 @@
     <Folder Include="Services\" />
     <Folder Include="Extensions\" />
     <Folder Include="Modules\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Converters\" />
   </ItemGroup>
 </Project>

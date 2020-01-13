@@ -69,6 +69,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LocationService.cs" />
     <Compile Include="Modules\TripLogPlatformModule.cs" />
+    <Compile Include="Renderers\DatePickerEntryCellRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -114,6 +115,26 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\stars_1.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\stars_1.imageset\star_1.png" />
+    <ImageAsset Include="Assets.xcassets\stars_1.imageset\star_1%402x.png" />
+    <ImageAsset Include="Assets.xcassets\stars_1.imageset\star_1%403x.png" />
+    <ImageAsset Include="Assets.xcassets\stars_2.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\stars_2.imageset\stars_2.png" />
+    <ImageAsset Include="Assets.xcassets\stars_2.imageset\stars_2%402x.png" />
+    <ImageAsset Include="Assets.xcassets\stars_2.imageset\stars_2%403x.png" />
+    <ImageAsset Include="Assets.xcassets\stars_3.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\stars_3.imageset\stars_3.png" />
+    <ImageAsset Include="Assets.xcassets\stars_3.imageset\stars_3%402x.png" />
+    <ImageAsset Include="Assets.xcassets\stars_3.imageset\stars_3%403x.png" />
+    <ImageAsset Include="Assets.xcassets\stars_4.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\stars_4.imageset\stars_4.png" />
+    <ImageAsset Include="Assets.xcassets\stars_4.imageset\stars_4%402x.png" />
+    <ImageAsset Include="Assets.xcassets\stars_4.imageset\stars_4%403x.png" />
+    <ImageAsset Include="Assets.xcassets\stars_5.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\stars_5.imageset\stars_5.png" />
+    <ImageAsset Include="Assets.xcassets\stars_5.imageset\stars_5%402x.png" />
+    <ImageAsset Include="Assets.xcassets\stars_5.imageset\stars_5%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -143,5 +164,26 @@
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Modules\" />
+    <Folder Include="Renderers\" />
+    <Folder Include="Assets.xcassets\stars_1.imageset\" />
+    <Folder Include="Assets.xcassets\stars_2.imageset\" />
+    <Folder Include="Assets.xcassets\stars_3.imageset\" />
+    <Folder Include="Assets.xcassets\stars_4.imageset\" />
+    <Folder Include="Assets.xcassets\stars_5.imageset\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\star_1.png" />
+    <BundleResource Include="Resources\star_1%402x.png" />
+    <BundleResource Include="Resources\star_1%403x.png" />
+    <BundleResource Include="Resources\stars_2%403x.png" />
+    <BundleResource Include="Resources\stars_3.png" />
+    <BundleResource Include="Resources\stars_3%402x.png" />
+    <BundleResource Include="Resources\stars_3%403x.png" />
+    <BundleResource Include="Resources\stars_4.png" />
+    <BundleResource Include="Resources\stars_4%402x.png" />
+    <BundleResource Include="Resources\stars_4%403x.png" />
+    <BundleResource Include="Resources\stars_5.png" />
+    <BundleResource Include="Resources\stars_5%402x.png" />
+    <BundleResource Include="Resources\stars_5%403x.png" />
   </ItemGroup>
 </Project>

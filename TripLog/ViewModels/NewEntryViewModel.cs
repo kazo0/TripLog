@@ -117,17 +117,33 @@ namespace TripLog.ViewModels
 
 		private async Task Save()
 		{
-			var newItem = new TripLogEntry
+			if (IsBusy)
 			{
-				Title = Title,
-				Latitude = Latitude,
-				Longitude = Longitude,
-				Date = Date,
-				Rating = Rating,
-				Notes = Notes
-			};
+				return;
+			}
 
-			await NavService.GoBack();
+			IsBusy = true;
+
+			try
+			{
+				var newItem = new TripLogEntry
+				{
+					Title = Title,
+					Latitude = Latitude,
+					Longitude = Longitude,
+					Date = Date,
+					Rating = Rating,
+					Notes = Notes
+				};
+
+				await Task.Delay(3000);
+				
+				await NavService.GoBack();
+			}
+			finally
+			{
+				IsBusy = false;
+			}
 		}
 
 		private bool CanSave()
